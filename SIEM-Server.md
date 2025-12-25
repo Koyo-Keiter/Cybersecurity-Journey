@@ -68,10 +68,10 @@ This project documents the deployment and testing of a Wazuh SIEM solution in a 
 
 ### Network Configuration
 
-- **Network Type**: Bridged (vmbr0)
-- **Subnet**: 192.168.1.0/24
-- **Isolation**: Lab traffic shares host network (production environments should use isolated VLANs)
-- **Firewall**: Windows Firewall configured to allow agent communication (port 1514/TCP)
+- **Network Type**: Bridged (vmbr0, vmbr1,vmbr2)
+- **Subnet**: 192.168.1.0/24, 10.0.0.0/24, 10.0.5.0/24
+- **Isolation**: Lab traffic is isolated from host network, with further isolation for attacker network
+- **Firewall**: pfSense
 
 **SIEM Server Hardware Configuration**
 <img width="1528" height="203" alt="image" src="https://github.com/user-attachments/assets/28d43ffa-b337-4d8f-b1ef-40a3736974a0" />
@@ -82,6 +82,8 @@ This project documents the deployment and testing of a Wazuh SIEM solution in a 
 **Windows Hardware Configuration**
 <img width="1528" height="300" alt="image" src="https://github.com/user-attachments/assets/3c71e87b-33b0-489a-ab56-dd5f579c56c5" />
 
+**pfSense Hardware Configuration**
+<img width="792" height="272" alt="image" src="https://github.com/user-attachments/assets/ccbecc92-bd44-49ad-bb3a-021125093c89" />
 
 
 ## 📥 Environment Configuration
@@ -91,11 +93,6 @@ This project documents the deployment and testing of a Wazuh SIEM solution in a 
 **Platform**: All-in-one deployment (Manager, Indexer, Dashboard)
 **Version**: Wazuh 4.7.x
 
-Installation method:
-```bash
-curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh
-sudo bash ./wazuh-install.sh -a -i
-```
 
 **Configuration Notes:**
 - Default admin credentials generated during installation
